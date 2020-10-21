@@ -57,7 +57,10 @@ export default class App extends React.Component {
 
   // Resets the timer
   reset = () => {
-    this.setState(() => ({count: 1500, stop: true, working: true, interval: 0}));
+    this.setState(() => {
+      clearInterval(this.state.interval);
+      return {count: 1500, stop: true, working: true};
+    });
   }
 
   // Converts an int into minutes and seconds
